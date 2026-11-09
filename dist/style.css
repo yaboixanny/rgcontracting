@@ -237,3 +237,11 @@ h2,h3,h4,h5,h6{zoom:1.1}
 @media(max-width:700px){.nav-group{display:flex;flex-wrap:wrap;width:100%;gap:0}.nav-group>a{font-size:15px;flex:1}.nav-group .nav-dropdown{position:static;width:auto}.nav-group .nav-dropdown summary{padding:7px 12px}.nav-group .dropdown-panel{position:relative;left:auto;top:auto;min-width:100%;margin-top:10px}.nav-group:has(.nav-dropdown[open]) .nav-dropdown{width:100%}.nav-group:has(.nav-dropdown[open]) .nav-dropdown summary{position:absolute;right:0;top:0}}
 a.google-review-badge{text-decoration:none;transition:box-shadow .2s,transform .2s}
 a.google-review-badge:hover{box-shadow:0 5px 18px #0003;transform:translateY(-2px)}
+.mobile-call-float{display:none}
+@media(max-width:700px){
+ .topbar{font-size:14px;padding:12px 6%}
+ .topbar .topbar-phone{display:inline}
+ .review-slide{max-height:none;overflow:visible;overscroll-behavior:auto}
+ .mobile-call-float:not([hidden]){position:fixed;right:18px;bottom:max(18px,env(safe-area-inset-bottom));z-index:30;display:flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:50%;background:#c84c00;color:#fff;box-shadow:0 4px 16px #0005}
+ .mobile-call-float:hover{background:#a73f00}
+}

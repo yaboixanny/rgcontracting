@@ -19,3 +19,12 @@ dropdowns.forEach(dropdown => {
 document.addEventListener('click', event => {
   dropdowns.forEach(dropdown => { if (!dropdown.closest('.nav-group').contains(event.target)) dropdown.open = false; });
 });
+
+const floatingCall = document.querySelector('.mobile-call-float');
+if (floatingCall) {
+  const mobileCall = window.matchMedia('(max-width: 700px)');
+  const updateFloatingCall = () => { floatingCall.hidden = !(mobileCall.matches && window.scrollY > 300); };
+  window.addEventListener('scroll', updateFloatingCall, {passive: true});
+  mobileCall.addEventListener('change', updateFloatingCall);
+  updateFloatingCall();
+}
