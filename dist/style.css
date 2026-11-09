@@ -187,3 +187,21 @@ footer .footer-bottom{border-color:#424848}
 .home-why-item p{font-size:14px;line-height:1.75;margin-top:15px;color:#535b5e}
 @media(max-width:1000px){.home-why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){.home-why-grid{grid-template-columns:1fr}}
+/* About page */
+.about-page-intro{background:#292f31;color:#fff;padding:75px 5% 82px}
+.about-page-intro-inner{max-width:1240px;margin:auto}
+.about-page-intro .eyebrow,.about-kicker{color:#d66a24;font-size:11px;font-weight:700;letter-spacing:1.5px}
+.about-page-intro h1,.about-story h2,.about-project h2{font-family:'Oswald','Arial Narrow',Impact,sans-serif;letter-spacing:0;font-weight:600;line-height:1.15}
+.about-page-intro h1{font-size:clamp(48px,5.4vw,72px)}
+.about-page-intro p{color:#d3d7d7;max-width:600px;margin-top:20px;font-size:16px}
+.about-story,.about-project-inner{max-width:1240px;margin:auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:8%}
+.about-story{padding:80px 5%}
+.about-story-photo{height:520px;overflow:hidden;background:#ddd}
+.about-story-photo img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.about-story h2,.about-project h2{font-size:clamp(34px,3.5vw,48px);color:#252c2e;margin-top:16px}
+.about-story-copy p,.about-project-copy p{font-size:15px;line-height:1.85;color:#535b5e;margin-top:20px}
+.about-call{margin-top:28px;border-radius:7px;gap:18px}.about-call span{font-size:14px}
+.about-project{background:#e8e9e7;padding:75px 5%}
+.about-project-photo{height:420px;overflow:hidden;background:#cdd2d0}.about-project-photo img{width:100%;height:100%;object-fit:cover}
+.about-services-link{display:inline-block;margin-top:24px;font-size:14px;text-decoration:underline;text-underline-offset:4px;color:#252c2e}
+@media(max-width:700px){.about-page-intro{padding:50px 6%}.about-story,.about-project-inner{grid-template-columns:1fr;gap:30px}.about-story{padding:50px 6%}.about-story-photo{height:420px}.about-project{padding:50px 6%}.about-project-photo{height:300px}.about-story h2,.about-project h2{font-size:35px}}
