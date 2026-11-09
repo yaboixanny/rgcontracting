@@ -103,3 +103,13 @@ header{position:relative;z-index:10}
 .contractor-hero .quote-card{background:rgba(246,246,244,.9)}
 @media(max-width:700px){.contractor-hero{background-position:57% center;background-image:linear-gradient(rgba(18,25,27,.77),rgba(18,25,27,.65)),url('/hero-concrete.webp')}}
 @media(min-width:701px){.contractor-hero{padding-top:130px;padding-bottom:138px}}
+.service-photo{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 60%;border-bottom:1px solid #d9dddd}
+.driveway-gallery{background:#f7f8f8;padding:76px 0 0}
+.driveway-gallery-heading{text-align:center;padding:0 5% 40px}
+.driveway-gallery-heading h2{font-family:'Oswald','Arial Narrow',Impact,sans-serif;font-size:46px;text-transform:uppercase;letter-spacing:0}
+.driveway-gallery-heading p{margin:18px auto 0;color:#596063}
+.driveway-gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+.driveway-gallery-grid a{display:block;overflow:hidden;background:#e2e5e5}
+.driveway-gallery-grid img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform .2s}
+.driveway-gallery-grid a:hover img{transform:scale(1.025)}
+@media(max-width:700px){.driveway-gallery{padding-top:50px}.driveway-gallery-heading h2{font-size:34px}.driveway-gallery-grid{grid-template-columns:1fr;gap:5px}.driveway-gallery-grid img{aspect-ratio:auto}}
