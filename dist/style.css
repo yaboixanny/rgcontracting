@@ -102,3 +102,4 @@ header{position:relative;z-index:10}
 .contractor-hero{background-color:#292f31;background-image:linear-gradient(90deg,rgba(18,25,27,.79),rgba(18,25,27,.57)),url('/hero-concrete.webp');background-size:cover;background-position:center 54%}
 .contractor-hero .quote-card{background:rgba(246,246,244,.9)}
 @media(max-width:700px){.contractor-hero{background-position:57% center;background-image:linear-gradient(rgba(18,25,27,.77),rgba(18,25,27,.65)),url('/hero-concrete.webp')}}
+@media(min-width:701px){.contractor-hero{padding-top:130px;padding-bottom:138px}}
