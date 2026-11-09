@@ -56,6 +56,15 @@ def driveway_gallery():
  return '<section class="driveway-gallery" aria-labelledby="driveway-gallery-title"><div class="driveway-gallery-heading"><h2 id="driveway-gallery-title">Our driveway work</h2><p>Explore photos from our concrete driveway projects. Select a photo to view the gallery.</p></div><div class="driveway-gallery-grid">' + ''.join(f'<button type="button" class="gallery-thumb" aria-label="Open photo {i} of {len(descriptions)}: {escape(description, quote=True)}"><img src="/images/driveways/driveway-{i:02}.webp" alt="{escape(description, quote=True)}" loading="lazy" width="765" height="1020"></button>' for i,description in enumerate(descriptions,1)) + '</div><dialog class="gallery-dialog" aria-label="Driveway project photo viewer"><div class="gallery-dialog-inner"><button class="gallery-close" type="button" aria-label="Close photo gallery">Close ✕</button><div class="gallery-stage"><button class="gallery-prev" type="button" aria-label="Previous photo">‹</button><img class="gallery-full-image" alt=""><button class="gallery-next" type="button" aria-label="Next photo">›</button></div><div class="gallery-info"><span class="gallery-count" aria-live="polite"></span><span class="gallery-caption"></span></div></div></dialog></section>'
 
 
+def homepage_project_gallery():
+ gallery = driveway_gallery().replace('<section class="driveway-gallery"', '<section id="our-work" class="driveway-gallery"', 1)
+ gallery = gallery.replace('Our driveway work', 'See our work', 1).replace('Explore photos from our concrete driveway projects.', 'Explore photos from our concrete projects.', 1).replace('Driveway project photo viewer', 'Concrete project photo viewer', 1)
+ extras = [('concrete-foundations.webp', 'Freshly poured concrete foundation'), ('concrete-slab.webp', 'Finished concrete slab on a property'), ('pole-barn-slab.webp', 'Concrete slab beneath a pole barn structure')]
+ gallery = gallery.replace(' of 12:', ' of 15:')
+ buttons = ''.join(f'<button type="button" class="gallery-thumb" aria-label="Open photo {i} of 15: {escape(description, quote=True)}"><img src="/images/{filename}" alt="{escape(description, quote=True)}" loading="lazy" width="765" height="1020"></button>' for i,(filename,description) in enumerate(extras,13))
+ return gallery.replace('</div><dialog class="gallery-dialog"', buttons + '</div><dialog class="gallery-dialog"', 1)
+
+
 def homepage_reviews():
  return '<section class="home-reviews" id="reviews" aria-labelledby="reviews-title"><div class="reviews-inner"><div class="reviews-heading"><span class="reviews-quote" aria-hidden="true">“</span><h2 id="reviews-title">What our customers say</h2><p>Customer reviews coming soon.</p></div><div class="reviews-grid">' + ''.join(f'<article class="review-placeholder" aria-label="Review placeholder {i}"><div class="review-profile"><span class="review-avatar" aria-hidden="true">“</span><div><h3>Customer review</h3><span>Placeholder · Review {i:02d}</span></div></div><div class="review-stars" aria-hidden="true">☆ ☆ ☆ ☆ ☆</div><p>A customer’s review will appear here once the Google Business Profile reviews are added.</p><span class="review-pending">Google review link coming soon</span></article>' for i in range(1,5)) + '</div></div></section>'
 
@@ -103,7 +112,7 @@ service_options = {
  'pole-barn-slabs': 'Pole barn slab',
  'concrete-culverts': 'Concrete culvert',
 }
-home=hero+homepage_services()+'''<section class="about-band"><div class="monogram">RG<span>LOCAL ROOTS.<br>SOLID WORK.</span></div><div><h2>Meet Ricardo.<br>The name behind RG.</h2><p>RG Contracting Services is a concrete contractor based in Port St. Lucie, owned by Ricardo. From your driveway to the foundation of your next project, it starts with understanding what you need.</p><a class="text-link" href="/about/">Get to know RG <span>↗</span></a></div></section>'''+homepage_reviews()+homepage_work()+homepage_locations()
+home=hero+homepage_services()+'''<section class="about-band"><div class="monogram">RG<span>LOCAL ROOTS.<br>SOLID WORK.</span></div><div><h2>Meet Ricardo.<br>The name behind RG.</h2><p>RG Contracting Services is a concrete contractor based in Port St. Lucie, owned by Ricardo. From your driveway to the foundation of your next project, it starts with understanding what you need.</p><a class="text-link" href="/about/">Get to know RG <span>↗</span></a></div></section>'''+homepage_reviews()+homepage_project_gallery()+homepage_locations()
 write('/','Concrete contractor in Port St. Lucie','RG Contracting Services: concrete driveways, foundations, slabs, pole barn slabs and culverts in St. Lucie County and Okeechobee.',home)
 for slug,title,heading,desc,detail,points,related in services:
  body=service_hero(title, desc, points, service_options.get(slug))
