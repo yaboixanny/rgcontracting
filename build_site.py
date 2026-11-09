@@ -79,6 +79,15 @@ def why_choose_us():
  ]
  return '<section class="home-services service-why" aria-labelledby="why-title"><div class="home-services-inner"><div class="home-services-heading"><h2 id="why-title">Why choose us</h2><p>Concrete services from a contractor based in Port St. Lucie.</p></div><div class="home-services-grid">' + ''.join(f'<article class="home-service-card"><div class="home-service-content"><h3>{title}</h3><p>{description}</p></div></article>' for title,description in items) + '</div></div></section>'
 
+def homepage_why_work():
+ items = [
+  ('Concrete is our focus', 'Our work is focused on concrete for Florida properties and the conditions that come with the local environment.'),
+  ('No cut corners', 'We believe in doing the job properly, from planning the work to taking care of the necessary paperwork.'),
+  ('Insurance and paperwork', 'Insurance and project paperwork are part of how we do business. We handle the paperwork involved in your concrete project.'),
+  ('Competitive pricing', 'We price our work competitively for the quality of concrete work we offer.')
+ ]
+ return '<section class="home-services home-why-work" aria-labelledby="home-why-work-title"><div class="home-services-inner"><div class="home-services-heading"><h2 id="home-why-work-title">Why work with RG Contracting Services</h2><p>Concrete work with the details handled, from the first conversation to the paperwork.</p></div><div class="home-why-grid">' + ''.join(f'<article class="home-why-item"><span aria-hidden="true">✓</span><h3>{title}</h3><p>{description}</p></article>' for title,description in items) + '</div></div></section>'
+
 def homepage_locations():
  photos = {
   'port-st-lucie': ('port-st-lucie-tradition.webp', 'A lakeside pier at sunset in Tradition, Port St. Lucie'),
@@ -112,7 +121,7 @@ service_options = {
  'pole-barn-slabs': 'Pole barn slab',
  'concrete-culverts': 'Concrete culvert',
 }
-home=hero+homepage_services()+'''<section class="about-band meet-ricardo"><div class="ricardo-photo"><img src="/images/ricardo.webp" alt="Ricardo, owner of RG Contracting Services" loading="lazy" width="797" height="1200"></div><div class="ricardo-copy"><h2>Meet Ricardo.<br>The name behind RG.</h2><p>Ricardo owns RG Contracting Services, a concrete contractor based in Port St. Lucie. Tell him about your property and the concrete project you have in mind.</p><ul class="ricardo-points"><li>Locally based in Port St. Lucie</li><li>Driveways, foundations, slabs, and culverts</li><li>Serving St. Lucie County, Okeechobee, and Vero Beach</li></ul><a class="button call-button ricardo-call" href="tel:+17723532541">Call Ricardo <span>772-353-2541</span></a></div></section>'''+homepage_reviews()+homepage_project_gallery()+homepage_locations()
+home=hero+homepage_services()+'''<section class="about-band meet-ricardo"><div class="ricardo-photo"><img src="/images/ricardo.webp" alt="Ricardo, owner of RG Contracting Services" loading="lazy" width="797" height="1200"></div><div class="ricardo-copy"><h2>Meet Ricardo.<br>The name behind RG.</h2><p>Ricardo owns RG Contracting Services, a concrete contractor based in Port St. Lucie. Tell him about your property and the concrete project you have in mind.</p><ul class="ricardo-points"><li>Locally based in Port St. Lucie</li><li>Driveways, foundations, slabs, and culverts</li><li>Serving St. Lucie County, Okeechobee, and Vero Beach</li></ul><a class="button call-button ricardo-call" href="tel:+17723532541">Call Ricardo <span>772-353-2541</span></a></div></section>'''+homepage_reviews()+homepage_project_gallery()+homepage_locations()+homepage_why_work()
 write('/','Concrete contractor in Port St. Lucie','RG Contracting Services: concrete driveways, foundations, slabs, pole barn slabs and culverts in St. Lucie County and Okeechobee.',home)
 for slug,title,heading,desc,detail,points,related in services:
  body=service_hero(title, desc, points, service_options.get(slug))

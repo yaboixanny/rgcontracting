@@ -178,3 +178,12 @@ footer .footer-bottom{border-color:#424848}
 .ricardo-points li{position:relative;padding-left:23px;margin:9px 0}
 .ricardo-points li:before{content:'✓';position:absolute;left:0;color:#c84c00;font-weight:700}
 .ricardo-call{margin-top:22px}
+.home-why-work{background:#e8e9e7}
+.home-why-work .home-services-heading{max-width:1000px}
+.home-why-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.home-why-item{background:#fff;padding:27px 24px;border-top:3px solid #c84c00}
+.home-why-item>span{display:block;color:#c84c00;font-size:24px;font-weight:700;margin-bottom:15px}
+.home-why-item h3{font-family:'Oswald','Arial Narrow',Impact,sans-serif;font-size:25px;line-height:1.2;letter-spacing:0;text-transform:uppercase}
+.home-why-item p{font-size:14px;line-height:1.75;margin-top:15px;color:#535b5e}
+@media(max-width:1000px){.home-why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.home-why-grid{grid-template-columns:1fr}}
