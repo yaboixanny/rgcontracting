@@ -142,3 +142,6 @@ footer .footer-bottom{border-color:#424848}
 @media(max-width:700px){.driveway-gallery-grid .gallery-thumb img{aspect-ratio:1/1}.gallery-dialog-inner{padding:12px;gap:8px}.gallery-stage{gap:6px}.gallery-prev,.gallery-next{width:38px;height:42px;font-size:28px}.gallery-info{font-size:12px}}
 @media(max-width:700px){.topbar>span{display:none}.topbar>a::after{content:none}}
 @media(max-width:700px){.topbar-phone{display:none}}
+/* Square image frames prevent portrait source dimensions from stretching cards. */
+.service-photo-frame{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:#e2e5e5;border-bottom:1px solid #d9dddd}
+.service-photo-frame .service-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;border:0}
