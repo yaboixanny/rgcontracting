@@ -215,3 +215,5 @@ h2,h3,h4,h5,h6{zoom:1.1}
 .review-carousel{max-width:760px;margin:30px auto 0}.review-slide{margin:0;text-align:center}.review-slide img{max-width:100%;max-height:480px;width:auto;height:auto;object-fit:contain}.review-controls{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:15px}.review-controls button{background:#fff;color:#20292a;border:0;border-radius:6px;min-width:42px;padding:9px;cursor:pointer}.review-position{font-size:12px;color:#fff}
 .review-slide img{width:100%;height:auto;max-height:none;border-radius:6px}
 .review-carousel{max-width:700px}
+.about-story-title{font-family:'Oswald','Arial Narrow',Impact,sans-serif;font-size:clamp(34px,3.5vw,48px);font-weight:600;line-height:1.15;letter-spacing:0;color:#252c2e;margin-top:16px}
+@media(max-width:700px){.about-story-title{font-size:35px}}
