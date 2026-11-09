@@ -5,3 +5,8 @@
   from = "/service-areas/port-st-lucie/*"
   to = "/"
   status = 301
+
+[[redirects]]
+  from = "/contact/*"
+  to = "/"
+  status = 301
