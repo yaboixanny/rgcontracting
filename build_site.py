@@ -54,6 +54,14 @@ def homepage_reviews():
 def homepage_work():
  return '<section class="home-services work-gallery" id="our-work" aria-labelledby="work-title"><div class="home-services-inner"><div class="home-services-heading"><h2 id="work-title">See our work</h2><p>A closer look at the concrete projects we’ve completed.</p></div><div id="work-media-grid" class="home-services-grid">' + ''.join('<div class="work-placeholder"><span aria-hidden="true">＋</span><p>Project photos &amp; videos</p><small>Coming soon</small></div>' for _ in range(3)) + '</div></div></section>'
 
+def why_choose_us():
+ items = [
+  ('Local to Port St. Lucie', 'RG Contracting Services is based in Port St. Lucie and serves St. Lucie County and the Okeechobee area.'),
+  ('Talk with Ricardo', 'Start with a conversation about your property, your plans, and the concrete work you have in mind.'),
+  ('Concrete for your project', 'Explore services for driveways, foundations, slabs, pole barns, and property access.')
+ ]
+ return '<section class="home-services service-why" aria-labelledby="why-title"><div class="home-services-inner"><div class="home-services-heading"><h2 id="why-title">Why choose us</h2><p>Concrete services from a contractor based in Port St. Lucie.</p></div><div class="home-services-grid">' + ''.join(f'<article class="home-service-card"><div class="home-service-content"><h3>{title}</h3><p>{description}</p></div></article>' for title,description in items) + '</div></div></section>'
+
 def homepage_locations():
  return '<section class="home-services home-locations" id="locations" aria-labelledby="locations-title"><div class="home-services-inner"><div class="home-services-heading"><h2 id="locations-title">Areas we serve</h2><p>Based in Port St. Lucie. Serving all of St. Lucie County and the Okeechobee area.</p></div><div class="home-services-grid">' + ''.join(f'<article class="home-service-card"><div class="service-photo-placeholder" role="img" aria-label="Photo placeholder for {name}"><span>LOCATION PHOTO COMING SOON</span></div><div class="home-service-content"><h3>{name}</h3><p>{description}</p><a href="/service-areas/{slug}/" aria-label="Explore concrete services in {name}">Learn more <span aria-hidden="true">→</span></a></div></article>' for slug,name,heading,description in locations) + '</div></div></section>'
 
@@ -81,10 +89,13 @@ home=hero+homepage_services()+'''<section class="about-band"><div class="monogra
 write('/','Concrete contractor in Port St. Lucie','RG Contracting Services: concrete driveways, foundations, slabs, pole barn slabs and culverts in St. Lucie County and Okeechobee.',home)
 for slug,title,heading,desc,detail,points,related in services:
  body=service_hero(title, desc, points, service_options.get(slug))+f'<section class="section detail"><div><span class="eyebrow">PLANNED AROUND YOUR PROPERTY</span><h2>{title} that start<br>with your needs.</h2><p>{detail}</p><p>Based in <a href="/service-areas/port-st-lucie/">Port St. Lucie</a>, serving <a href="/service-areas/st-lucie-county/">St. Lucie County</a> and the <a href="/service-areas/okeechobee/">Okeechobee area</a>.</p></div><div class="considerations"><h3>What we’ll discuss</h3>'+''.join(f'<div><span>0{i+1}</span>{p}</div>' for i,p in enumerate(points))+'</div></section><section class="section related"><span class="eyebrow">EXPLORE YOUR OPTIONS</span><h2>Related concrete services</h2>'+cards(related)+'</section>'+cta()
+ body += why_choose_us()+homepage_reviews()
  if slug in ('concrete-driveways', 'concrete-driveway-installation', 'concrete-driveway-repair', 'concrete-driveway-extension'):
-  body += driveway_gallery()
+  body += driveway_gallery().replace('Our driveway work', 'See our work')
+ else:
+  body += homepage_work()
  write('/services/'+slug+'/',title,desc,body)
-write('/services/','Our concrete services','Explore concrete driveway, foundation, slab and culvert services.', service_hero('Concrete services', 'Concrete work for driveways, foundations, slabs, and culverts across your property.', ['Driveways and driveway repairs', 'Foundations and concrete slabs', 'Pole barn slabs and concrete culverts'])+'<section class="section"><div class="section-heading"><h2>Our concrete services</h2><p>Explore concrete services for your home, building, and property.</p></div>'+cards(list(S))+'</section>'+cta())
+write('/services/','Our concrete services','Explore concrete driveway, foundation, slab and culvert services.', service_hero('Concrete services', 'Concrete work for driveways, foundations, slabs, and culverts across your property.', ['Driveways and driveway repairs', 'Foundations and concrete slabs', 'Pole barn slabs and concrete culverts'])+'<section class="section"><div class="section-heading"><h2>Our concrete services</h2><p>Explore concrete services for your home, building, and property.</p></div>'+cards(list(S))+'</section>'+cta()+why_choose_us()+homepage_reviews()+homepage_work())
 for slug,name,heading,desc in locations:
  write('/service-areas/'+slug+'/',f'Concrete contractor in {name}',desc,f'<section class="inner-hero"><a class="breadcrumb" href="/service-areas/">Service areas / {name}</a><span class="eyebrow">RG CONTRACTING SERVICES · {name.upper()}</span><h1>{heading}</h1><p>{desc}</p><a class="button" href="/contact/">Plan your project ↗</a></section><section class="section"><div class="section-heading"><h2>Concrete services<br>in {name}.</h2><p>Start with the service you need. Share your property location and project details so Ricardo can discuss the scope with you.</p></div>'+cards(['concrete-driveways','concrete-foundations','concrete-slabs','pole-barn-slabs','concrete-culverts'])+'</section>'+cta())
 write('/service-areas/','Our service areas','Concrete services throughout St. Lucie County and the Okeechobee area.','<section class="inner-hero"><span class="eyebrow">OUR SERVICE AREAS</span><h1>Rooted in Port St. Lucie.<br>Ready for your project.</h1><p>Serving all of St. Lucie County and the Okeechobee area.</p></section><section class="section area-list">'+''.join(f'<a href="/service-areas/{l[0]}/"><span>{l[1]}</span><span>↗</span></a>' for l in locations)+'</section>'+cta())

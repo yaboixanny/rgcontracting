@@ -145,3 +145,5 @@ footer .footer-bottom{border-color:#424848}
 /* Square image frames prevent portrait source dimensions from stretching cards. */
 .service-photo-frame{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:#e2e5e5;border-bottom:1px solid #d9dddd}
 .service-photo-frame .service-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;border:0}
+.service-why .home-service-content{min-height:210px;justify-content:center}
+.service-why .home-service-content p{margin-bottom:0}
