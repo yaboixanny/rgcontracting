@@ -172,3 +172,9 @@ footer .footer-bottom{border-color:#424848}
 .ricardo-call{margin-top:28px;border-radius:7px;font-size:14px;gap:18px}
 .ricardo-call span{font-size:14px;line-height:1.4}
 @media(max-width:700px){.meet-ricardo{margin:0 6% 50px;padding:25px;grid-template-columns:1fr;gap:30px}.ricardo-photo{aspect-ratio:4/3}.ricardo-copy h2{font-size:36px}}
+.meet-ricardo{background:#e8e9e7;color:#252c2e}
+.meet-ricardo .ricardo-copy>p{color:#4d5556;margin:20px 0 16px;font-size:15px;line-height:1.7}
+.ricardo-points{list-style:none;padding:0;margin:0;color:#303738;font-size:14px}
+.ricardo-points li{position:relative;padding-left:23px;margin:9px 0}
+.ricardo-points li:before{content:'✓';position:absolute;left:0;color:#c84c00;font-weight:700}
+.ricardo-call{margin-top:22px}
