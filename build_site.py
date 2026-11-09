@@ -59,9 +59,10 @@ def driveway_gallery():
 def homepage_project_gallery():
  gallery = driveway_gallery().replace('<section class="driveway-gallery"', '<section id="our-work" class="driveway-gallery"', 1)
  gallery = gallery.replace('Our driveway work', 'See our work', 1).replace('Explore photos from our concrete driveway projects.', 'Explore photos from our concrete projects.', 1).replace('Driveway project photo viewer', 'Concrete project photo viewer', 1)
- extras = [('concrete-foundations.webp', 'Freshly poured concrete foundation'), ('concrete-slab.webp', 'Finished concrete slab on a property'), ('pole-barn-slab.webp', 'Concrete slab beneath a pole barn structure')]
- gallery = gallery.replace(' of 12:', ' of 15:')
- buttons = ''.join(f'<button type="button" class="gallery-thumb" aria-label="Open photo {i} of 15: {escape(description, quote=True)}"><img src="/images/{filename}" alt="{escape(description, quote=True)}" loading="lazy" width="765" height="1020"></button>' for i,(filename,description) in enumerate(extras,13))
+ extras = [('concrete-foundations.webp', 'Freshly poured concrete foundation'), ('concrete-slab.webp', 'Finished concrete slab on a property'), ('pole-barn-slab.webp', 'Concrete slab beneath a pole barn structure'), ('concrete-truck.webp', 'Concrete pump truck at a project site')]
+ total = 12 + len(extras)
+ gallery = gallery.replace(' of 12:', f' of {total}:')
+ buttons = ''.join(f'<button type="button" class="gallery-thumb" aria-label="Open photo {i} of {total}: {escape(description, quote=True)}"><img src="/images/{filename}" alt="{escape(description, quote=True)}" loading="lazy" width="765" height="1020"></button>' for i,(filename,description) in enumerate(extras,13))
  return gallery.replace('</div><dialog class="gallery-dialog"', buttons + '</div><dialog class="gallery-dialog"', 1)
 
 
