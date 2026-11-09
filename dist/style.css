@@ -140,3 +140,5 @@ footer .footer-bottom{border-color:#424848}
 .gallery-prev,.gallery-next{font-size:34px;line-height:1;color:#171b1c;background:#fff;border:0;border-radius:6px;width:48px;height:48px;cursor:pointer}
 .gallery-info{text-align:center;font-size:14px;color:#fff;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 @media(max-width:700px){.driveway-gallery-grid .gallery-thumb img{aspect-ratio:1/1}.gallery-dialog-inner{padding:12px;gap:8px}.gallery-stage{gap:6px}.gallery-prev,.gallery-next{width:38px;height:42px;font-size:28px}.gallery-info{font-size:12px}}
+@media(max-width:700px){.topbar>span{display:none}.topbar>a::after{content:none}}
+@media(max-width:700px){.topbar-phone{display:none}}
