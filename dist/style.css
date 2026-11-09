@@ -84,3 +84,4 @@ header .button.small{border-radius:7px}
 .home-services:not(.home-locations) .home-service-content a:hover{background:#454d4f;color:#fff}
 @media(min-width:701px){.contractor-hero{padding-top:100px;padding-bottom:108px}}
 @media(max-width:700px){.topbar{gap:8px;flex-wrap:wrap}.topbar>span{display:inline;font-size:10px}.topbar>a::after{margin-left:8px}}
+.hero-buttons .button{border-radius:7px}
