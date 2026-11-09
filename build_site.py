@@ -36,9 +36,18 @@ def homepage_services():
   ('pole-barn-slabs', 'Pole barn slabs', 'Plan a concrete floor for your pole barn, storage space, or workshop around the way you will use it.'),
   ('concrete-culverts', 'Concrete culverts', 'Discuss concrete culvert work for property entrances, drainage crossings, and access to your land.')
  ]
- images = {'concrete-driveways': (2, 'Concrete driveway with a newly poured section'), 'concrete-driveway-repair': (3, 'Fresh concrete repair in a curved driveway'), 'concrete-driveway-installation': (1, 'Freshly placed concrete driveway section'), 'concrete-driveway-extension': (7, 'New concrete driveway extension alongside existing driveway')}
+ images = {
+  'concrete-driveways': ('driveways/driveway-02.webp', 'Concrete driveway with a newly poured section'),
+  'concrete-driveway-repair': ('driveways/driveway-03.webp', 'Fresh concrete repair in a curved driveway'),
+  'concrete-driveway-installation': ('driveways/driveway-01.webp', 'Freshly placed concrete driveway section'),
+  'concrete-driveway-extension': ('driveways/driveway-07.webp', 'New concrete driveway extension alongside existing driveway'),
+  'concrete-foundations': ('concrete-foundations.webp', 'Fresh concrete foundation slab during construction'),
+  'concrete-slabs': ('concrete-slab.webp', 'Finished concrete slab on a property'),
+  'pole-barn-slabs': ('pole-barn-slab.webp', 'Concrete slab beneath a pole barn structure'),
+  'concrete-culverts': ('driveways/driveway-12.webp', 'Concrete culvert crossing beside a driveway'),
+ }
  def card(slug, title, description):
-  photo = ('<div class="service-photo-frame"><img class="service-photo slab-photo" src="/images/concrete-slab.webp" alt="Finished concrete slab on a property" loading="lazy" width="765" height="1020"></div>' if slug == 'concrete-slabs' else '<div class="service-photo-frame"><img class="service-photo pole-barn-photo" src="/images/pole-barn-slab.webp" alt="Concrete slab beneath a pole barn structure" loading="lazy" width="788" height="1400"></div>' if slug == 'pole-barn-slabs' else f'<div class="service-photo-frame"><img class="service-photo" src="/images/driveways/driveway-{images[slug][0]:02}.webp" alt="{escape(images[slug][1], quote=True)}" loading="lazy" width="765" height="1020"></div>' if slug in images else f'<div class="service-photo-placeholder" role="img" aria-label="Photo placeholder for {title.lower()}"><span>PROJECT PHOTO COMING SOON</span></div>')
+  photo = (f'<div class="service-photo-frame"><img class="service-photo {"pole-barn-photo" if slug == "pole-barn-slabs" else ""}" src="/images/{images[slug][0]}" alt="{escape(images[slug][1], quote=True)}" loading="lazy" width="765" height="1020"></div>' if slug in images else f'<div class="service-photo-placeholder" role="img" aria-label="Photo placeholder for {title.lower()}"><span>PROJECT PHOTO COMING SOON</span></div>')
   return f'<article class="home-service-card">{photo}<div class="home-service-content"><h3>{title}</h3><p>{description}</p><a href="/services/{slug}/" aria-label="Learn more about {title.lower()}">Learn more <span aria-hidden="true">→</span></a></div></article>'
  return '<section class="home-services" aria-labelledby="home-services-title"><div class="home-services-inner"><div class="home-services-heading"><h2 id="home-services-title">Our concrete services</h2><p>Concrete work for homes and properties throughout St. Lucie County and the Okeechobee area.</p></div><div class="home-services-grid">' + ''.join(card(*item) for item in items) + '</div></div></section>'
 
@@ -67,6 +76,7 @@ def homepage_locations():
   'st-lucie-county': ('st-lucie-county.webp', 'A tree-lined golf course in St. Lucie County'),
   'fort-pierce': ('fort-pierce.webp', 'Sunset over the water in Fort Pierce'),
   'okeechobee': ('lake-okeechobee.webp', 'A view across Lake Okeechobee from Pahokee'),
+  'vero-beach': ('vero-beach.webp', 'The Indian River Lagoon at sunset in Vero Beach'),
  }
  def card(slug, name, heading, description):
   photo = (f'<div class="location-photo-frame"><img class="location-photo" src="/images/{photos[slug][0]}" alt="{photos[slug][1]}" loading="lazy"></div>' if slug in photos else f'<div class="service-photo-placeholder" role="img" aria-label="Photo placeholder for {name}"><span>LOCATION PHOTO COMING SOON</span></div>')
@@ -101,6 +111,9 @@ for slug,title,heading,desc,detail,points,related in services:
   body = service_hero(title, desc, points, service_options.get(slug)).replace('class="contractor-hero"', 'class="contractor-hero pole-barn-hero"')
  if slug == 'concrete-slabs':
   body = body.replace('class="contractor-hero"', 'class="contractor-hero concrete-slab-hero"')
+ hero_images = {'concrete-driveways':'driveways/driveway-02.webp', 'concrete-driveway-repair':'driveways/driveway-03.webp', 'concrete-driveway-installation':'driveways/driveway-01.webp', 'concrete-driveway-extension':'driveways/driveway-07.webp', 'concrete-foundations':'concrete-foundations.webp', 'concrete-slabs':'concrete-slab.webp', 'pole-barn-slabs':'pole-barn-slab.webp', 'concrete-culverts':'driveways/driveway-12.webp'}
+ if slug in hero_images:
+  body = body.replace('class="contractor-hero', f'style="--service-hero-image:url(/images/{hero_images[slug]})" class="contractor-hero service-photo-hero', 1)
  body += why_choose_us()+homepage_reviews()
  if slug in ('concrete-driveways', 'concrete-driveway-installation', 'concrete-driveway-repair', 'concrete-driveway-extension'):
   body += driveway_gallery().replace('Our driveway work', 'See our work')
