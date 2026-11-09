@@ -205,3 +205,5 @@ footer .footer-bottom{border-color:#424848}
 .about-project-photo{height:420px;overflow:hidden;background:#cdd2d0}.about-project-photo img{width:100%;height:100%;object-fit:cover}
 .about-services-link{display:inline-block;margin-top:24px;font-size:14px;text-decoration:underline;text-underline-offset:4px;color:#252c2e}
 @media(max-width:700px){.about-page-intro{padding:50px 6%}.about-story,.about-project-inner{grid-template-columns:1fr;gap:30px}.about-story{padding:50px 6%}.about-story-photo{height:420px}.about-project{padding:50px 6%}.about-project-photo{height:300px}.about-story h2,.about-project h2{font-size:35px}}
+/* Increase secondary headings consistently while keeping page titles unchanged. */
+h2,h3,h4,h5,h6{zoom:1.1}
