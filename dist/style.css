@@ -85,3 +85,15 @@ header .button.small{border-radius:7px}
 @media(min-width:701px){.contractor-hero{padding-top:100px;padding-bottom:108px}}
 @media(max-width:700px){.topbar{gap:8px;flex-wrap:wrap}.topbar>span{display:inline;font-size:10px}.topbar>a::after{margin-left:8px}}
 .hero-buttons .button{border-radius:7px}
+
+header{position:relative;z-index:10}
+.nav-dropdown{position:relative}
+.nav-dropdown summary{cursor:pointer;list-style:none;white-space:nowrap}
+.nav-dropdown summary::-webkit-details-marker{display:none}
+.nav-dropdown summary span{font-size:11px;margin-left:3px}
+.nav-dropdown summary:hover{color:#f99551}
+.nav-dropdown summary:focus-visible{outline:3px solid #f99551;outline-offset:5px}
+.dropdown-panel{position:absolute;top:100%;left:-18px;min-width:245px;padding:12px 0;background:#171b1c;box-shadow:0 12px 25px #0003;z-index:20}
+.dropdown-panel a{display:block;padding:9px 18px;color:#fff;font-size:13px;line-height:1.35;white-space:normal}
+.dropdown-panel a:hover,.dropdown-panel a:focus-visible{background:#303838;color:#ffab73}
+@media(max-width:700px){.nav-dropdown{width:100%}.nav-dropdown summary{font-size:15px}.dropdown-panel{position:static;min-width:0;background:#252b2c;box-shadow:none;margin-top:12px;padding:5px 0}.dropdown-panel a{padding:10px 15px}}
