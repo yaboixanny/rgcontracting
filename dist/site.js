@@ -84,7 +84,8 @@ document.querySelectorAll('.review-carousel').forEach(carousel => {
   carousel.querySelector('.review-prev').addEventListener('click', () => { stop(); show(current - 1); });
   carousel.querySelector('.review-next').addEventListener('click', () => { stop(); show(current + 1); });
   pause.addEventListener('click', () => { if (timer) stop(); else play(); });
-  carousel.addEventListener('focusin', stop);
+  carousel.addEventListener('focusin', event => { if (event.target !== pause && timer) stop(); });
+  carousel.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse' && timer) stop(); });
   document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
   show(0);
   if (slides.length === 1) carousel.querySelector('.review-controls').hidden = true;
