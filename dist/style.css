@@ -150,3 +150,4 @@ footer .footer-bottom{border-color:#424848}
 .service-photo-frame .pole-barn-photo{object-position:center 43%}
 .contractor-hero.pole-barn-hero{background-image:linear-gradient(90deg,rgba(18,25,27,.79),rgba(18,25,27,.57)),url('/images/pole-barn-slab.webp');background-position:center 42%}
 @media(max-width:700px){.contractor-hero.pole-barn-hero{background-image:linear-gradient(rgba(18,25,27,.77),rgba(18,25,27,.65)),url('/images/pole-barn-slab.webp');background-position:center 42%}}
+.service-photo-frame .pole-barn-photo{object-position:center 30%}
