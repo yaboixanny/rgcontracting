@@ -112,7 +112,7 @@ service_options = {
  'pole-barn-slabs': 'Pole barn slab',
  'concrete-culverts': 'Concrete culvert',
 }
-home=hero+homepage_services()+'''<section class="about-band"><div class="monogram">RG<span>LOCAL ROOTS.<br>SOLID WORK.</span></div><div><h2>Meet Ricardo.<br>The name behind RG.</h2><p>RG Contracting Services is a concrete contractor based in Port St. Lucie, owned by Ricardo. From your driveway to the foundation of your next project, it starts with understanding what you need.</p><a class="text-link" href="/about/">Get to know RG <span>↗</span></a></div></section>'''+homepage_reviews()+homepage_project_gallery()+homepage_locations()
+home=hero+homepage_services()+'''<section class="about-band meet-ricardo"><div class="ricardo-photo"><img src="/images/ricardo.webp" alt="Ricardo, owner of RG Contracting Services" loading="lazy" width="797" height="1200"></div><div class="ricardo-copy"><h2>Meet Ricardo.<br>The name behind RG.</h2><a class="button call-button ricardo-call" href="tel:+17723532541">Call Ricardo <span>772-353-2541</span></a></div></section>'''+homepage_reviews()+homepage_project_gallery()+homepage_locations()
 write('/','Concrete contractor in Port St. Lucie','RG Contracting Services: concrete driveways, foundations, slabs, pole barn slabs and culverts in St. Lucie County and Okeechobee.',home)
 for slug,title,heading,desc,detail,points,related in services:
  body=service_hero(title, desc, points, service_options.get(slug))
